@@ -23,7 +23,6 @@ int main()
     cout<<"他们的比赛成绩我已经放到了本地文件夹里！"<<endl;
     cout<<"请注意查收！"<<endl;
     student players[number];
-    
     ifstream folder2("/Users/s20181102929/Desktop/比赛打分表/学生的基本信息.txt");
     int begin;
     for(begin=0;begin<number;begin++){
@@ -86,33 +85,33 @@ int main()
         instead[5]=players[begin].score6;
         instead[6]=players[begin].score7;
         int middle;
-        for(int j=0;j<number;j++){
-            if(players[j].score1!=0){
-                middle=players[j].score1;
+        for(int middlechange=0;middlechange<number;middlechange++){
+            if(players[middlechange].score1!=0){
+                middle=players[middlechange].score1;
             }
-            if(players[j].score2!=0){
-                middle=players[j].score2;
+            if(players[middlechange].score2!=0){
+                middle=players[middlechange].score2;
             }
-            if(players[j].score3!=0){
-               middle=players[j].score3;
+            if(players[middlechange].score3!=0){
+               middle=players[middlechange].score3;
             }
-            if(players[j].score4!=0){
-                middle=players[j].score4;
+            if(players[middlechange].score4!=0){
+                middle=players[middlechange].score4;
             }
-            if(players[j].score5!=0){
-                middle=players[j].score5;
+            if(players[middlechange].score5!=0){
+                middle=players[middlechange].score5;
             }
-            if(players[j].score6!=0){
-                middle=players[j].score6;
+            if(players[middlechange].score6!=0){
+                middle=players[middlechange].score6;
             }
-            if(players[j].score7!=0){
-                middle=players[j].score7;
+            if(players[middlechange].score7!=0){
+                middle=players[middlechange].score7;
             }
         }
-        for(int j=0;j<7;j++){
-            if(instead[j]!=0)
-                if(instead[j]<middle){
-                    middle=instead[j];
+        for(int middlechange=0;middlechange<7;middlechange++){
+            if(instead[middlechange]!=0)
+                if(instead[middlechange]<middle){
+                    middle=instead[middlechange];
                 }
         }
         //cout<<middle<<endl;
@@ -146,11 +145,11 @@ int main()
     }
     student pm;
     for(begin=0;begin<number-1;begin++){
-        for(int j=0;j<number-1;j++){
-            if(players[j].avg<players[j+1].avg){
-                pm=players[j];
-               players[j]=players[j+1];
-                players[j+1]=pm;
+        for(int middlechange=0;middlechange<number-1;middlechange++){
+            if(players[middlechange].avg<players[middlechange+1].avg){
+                pm=players[middlechange];
+               players[middlechange]=players[middlechange+1];
+                players[middlechange+1]=pm;
             }
         }
     }
