@@ -17,17 +17,26 @@ using namespace std;
 int main()
 {
     int number;
-    ifstream folder1("/Users/s20181102929/Desktop/比赛打分表/xue shen ren shu.txt");
+    ifstream folder1("/Users/s20181102929/Desktop/比赛打分表/参赛人数.txt");
     folder1>>number;
     cout<<"本次参赛的选手共有 "<<number<<"名"<<"!"<<endl;
     cout<<"他们的比赛成绩我已经放到了本地文件夹里！"<<endl;
     cout<<"请注意查收！"<<endl;
     student players[number];
     
-    ifstream folder2("/Users/s20181102929/Desktop/比赛打分表/xue sheng xin xi.txt");
+    ifstream folder2("/Users/s20181102929/Desktop/比赛打分表/学生的基本信息.txt");
     int begin;
     for(begin=0;begin<number;begin++){
-        folder2>>players[begin].num>>players[begin].academy>>players[begin].name>>players[begin].score1>>players[begin].score2>>players[begin].score3>>players[begin].score4>>players[begin].score5>>players[begin].score6>>players[begin].score7;
+        folder2>>players[begin].num>>players[begin].academy>>players[begin].name;
+    }
+    ifstream folder4("/Users/s20181102929/Desktop/比赛打分表/裁判打分.txt");
+    for(begin=0;begin<number;begin++){
+        folder4>>players[begin].score1>>players[begin].score2>>players[begin].score3>>players[begin].score4>>players[begin].score5>>players[begin].score6>>players[begin].score7;
+    }
+    cout<<"他们获得的成绩分别为："<<endl;
+    for(begin=0;begin<number;begin++){
+        cout<<begin+1<<"号选手的得分为：";
+        cout<<players[begin].score1<<" " <<players[begin].score2<<" "<<players[begin].score3<<" "<<players[begin].score4<<" "<<players[begin].score5<<" "<<players[begin].score6<<" "<<players[begin].score7<<endl;
     }
     for(begin=0;begin<number;begin++){
         int instead[7];
@@ -44,8 +53,7 @@ int main()
                 middle=instead[j];
             }
         }
-        //cout<<middle<<endl;
-        
+       // cout<<middle<<endl;
             if(players[begin].score1==middle){
                 players[begin].score1=0;
             }
@@ -107,7 +115,7 @@ int main()
                     middle=instead[j];
                 }
         }
-       // cout<<middle<<endl;
+        //cout<<middle<<endl;
         if(players[begin].score1==middle){
             players[begin].score1=0;
         }
@@ -146,7 +154,8 @@ int main()
             }
         }
     }
-    ofstream folder3("/Users/s20181102929/Desktop/比赛打分表/比赛结果.txt");
+   
+    ofstream folder3("/Users/s20181102929/Desktop/比赛打分表/比赛信息.txt");
     if(folder3.is_open()){
          folder3<<"本次的比赛结果如下："<<endl;
         folder3<<"下面由我来给大家揭晓："<<endl;
