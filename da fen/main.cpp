@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+
 struct student{
     char num[10];
     char academy[100];
@@ -13,6 +15,9 @@ struct student{
     int score7;
     double avg;
 };
+bool cmp(const student &s1,const student &s2){
+    return s1.avg>s2.avg;
+}
 using namespace std;
 void print(){
     int i;
@@ -69,28 +74,28 @@ int main()
                 middle=instead[j];
             }
         }
-            if(players[begin].score1==middle){
-                players[begin].score1=0;
-            }
-            if(players[begin].score2==middle){
-                players[begin].score2=0;
-            }
-            if(players[begin].score3==middle){
-                players[begin].score3=0;
-            }
-            if(players[begin].score4==middle){
-                players[begin].score4=0;
-            }
-            if(players[begin].score5==middle){
-                players[begin].score5=0;
-            }
-            if(players[begin].score6==middle){
-                players[begin].score6=0;
-            }
-            if(players[begin].score7==middle){
-                players[begin].score7=0;
-            }
+        if(players[begin].score1==middle){
+            players[begin].score1=0;
         }
+        if(players[begin].score2==middle){
+            players[begin].score2=0;
+        }
+        if(players[begin].score3==middle){
+            players[begin].score3=0;
+        }
+        if(players[begin].score4==middle){
+            players[begin].score4=0;
+        }
+        if(players[begin].score5==middle){
+            players[begin].score5=0;
+        }
+        if(players[begin].score6==middle){
+            players[begin].score6=0;
+        }
+        if(players[begin].score7==middle){
+            players[begin].score7=0;
+        }
+    }
     for(begin=0;begin<number;begin++){
         int instead[7];
         instead[0]=players[begin].score1;
@@ -109,7 +114,7 @@ int main()
                 middle=players[middlechange].score2;
             }
             if(players[middlechange].score3!=0){
-               middle=players[middlechange].score3;
+                middle=players[middlechange].score3;
             }
             if(players[middlechange].score4!=0){
                 middle=players[middlechange].score4;
@@ -137,7 +142,7 @@ int main()
             players[begin].score2=0;
         }
         if(players[begin].score3==middle){
-           players[begin].score3=0;
+            players[begin].score3=0;
         }
         if(players[begin].score4==middle){
             players[begin].score4=0;
@@ -154,21 +159,12 @@ int main()
     }
     for(begin=0;begin<number;begin++){
         double h=0;
-     h=players[begin].score1+players[begin].score2+players[begin].score3+players[begin].score4+players[begin].score5+players[begin].score6+players[begin].score7;
+        h=players[begin].score1+players[begin].score2+players[begin].score3+players[begin].score4+players[begin].score5+players[begin].score6+players[begin].score7;
         h=1.0*h/5;
         players[begin].avg=h;
     }
-    student pm;
-    for(begin=0;begin<number-1;begin++){
-        for(int middlechange=0;middlechange<number-1;middlechange++){
-            if(players[middlechange].avg<players[middlechange+1].avg){
-                pm=players[middlechange];
-               players[middlechange]=players[middlechange+1];
-                players[middlechange+1]=pm;
-            }
-        }
-    }
-   
+    sort(players,players+number,cmp);
+    
     ofstream folder3("/Users/s20181102929/Desktop/比赛打分表/比赛信息.txt");
     if(folder3.is_open()){
         for(int start=0;start<50;start++){
@@ -176,7 +172,7 @@ int main()
         }
         folder3<<endl;
         folder3<<"在经过精彩而又激烈的竞争后，本次比赛也拉下帷幕"<<endl<<endl<<"各位选手也在本次比赛中取得了优异的成绩！！！！"<<endl<<endl<<endl;
-         folder3<<"本次的比赛结果如下："<<endl<<endl;
+        folder3<<"本次的比赛结果如下："<<endl<<endl;
         folder3<<"下面由我来给大家揭晓："<<endl<<endl<<endl<<endl;
         for(begin=0;begin<number;begin++){
             folder3<<"获得本次比赛第"<<begin+1<<"名的是："<<endl;
