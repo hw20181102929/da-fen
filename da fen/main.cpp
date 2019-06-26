@@ -14,11 +14,25 @@ struct student{
     double avg;
 };
 using namespace std;
+void print(){
+    int i;
+    for(i=0;i<46;i++){
+        cout<<"*";
+    }
+}
+void print1(){
+    int i;
+    for(i=0;i<40;i++){
+        cout<<"*"<<endl;
+    }
+}
 int main()
 {
     int number;
     ifstream folder1("/Users/s20181102929/Desktop/比赛打分表/参赛人数.txt");
     folder1>>number;
+    print();
+    cout<<endl;
     cout<<"本次参赛的选手共有 "<<number<<"名"<<"!"<<endl<<endl;
     cout<<"他们的详细比赛成绩我已经放到了本地比赛打分文件夹下！"<<endl<<endl;
     cout<<"如果您想浏览比赛结果，请到本地文件夹下查看"<<endl<<endl;
@@ -38,7 +52,8 @@ int main()
         cout<<begin+1<<"号选手的得分为：";
         cout<<players[begin].score1<<" " <<players[begin].score2<<" "<<players[begin].score3<<" "<<players[begin].score4<<" "<<players[begin].score5<<" "<<players[begin].score6<<" "<<players[begin].score7<<endl<<endl;
     }
-    
+    print();
+    cout<<endl;
     for(begin=0;begin<number;begin++){
         int instead[7];
         instead[0]=players[begin].score1;
@@ -156,6 +171,10 @@ int main()
    
     ofstream folder3("/Users/s20181102929/Desktop/比赛打分表/比赛信息.txt");
     if(folder3.is_open()){
+        for(int start=0;start<50;start++){
+            folder3<<"*";
+        }
+        folder3<<endl;
         folder3<<"在经过精彩而又激烈的竞争后，本次比赛也拉下帷幕"<<endl<<endl<<"各位选手也在本次比赛中取得了优异的成绩！！！！"<<endl<<endl<<endl;
          folder3<<"本次的比赛结果如下："<<endl<<endl;
         folder3<<"下面由我来给大家揭晓："<<endl<<endl<<endl<<endl;
@@ -171,6 +190,9 @@ int main()
             }
             folder3<<"感谢他的参与！"<<endl<<endl<<endl;
             folder3<<endl;
+        }
+        for(int start=0;start<50;start++){
+            folder3<<"*";
         }
         folder3.close();
     }
