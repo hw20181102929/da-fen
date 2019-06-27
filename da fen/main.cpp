@@ -50,7 +50,7 @@ int main()
     }
     ifstream folder4("/Users/s20181102929/Desktop/比赛打分表/裁判打分.txt");
     for(begin=0;begin<number;begin++){
-        folder4>>players[begin].score1>>players[begin].score2>>players[begin].score3>>players[begin].score4>>players[begin].score5>>players[begin].score6>>players[begin].score7;
+ folder4>>players[begin].score1>>players[begin].score2>>players[begin].score3>>players[begin].score4>>players[begin].score5>>players[begin].score6>>players[begin].score7;
     }
     cout<<"各位裁判的对选手的打分如下： "<<endl;
     for(begin=0;begin<number;begin++){
@@ -176,8 +176,8 @@ int main()
         folder3<<"下面由我来给大家揭晓："<<endl<<endl<<endl<<endl;
         for(begin=0;begin<number;begin++){
             folder3<<"获得本次比赛第"<<begin+1<<"名的是："<<endl;
-            folder3<<"他是来自:"<<players[begin].academy<<" "<<"学号为："<<players[begin].num<<"的"<<" "<<" "<<players[begin].name<<"同学"<<endl;
-            folder3<<"去掉一个最高分去掉一个最低分他的最后得分为："<<players[begin].avg<<endl;
+            folder3<<"他是来自:"<<"     "<<players[begin].academy<<"       "<<"学号为："<<"  "<<players[begin].num<<"     "<<" 的"<<players[begin].name<<"同学"<<endl;
+            folder3<<"去掉一个最高分去掉一个最低分他的最后得分为："<<endl<<endl<<players[begin].avg<<endl<<endl;
             if(begin==0){
                 folder3<<"希望他能再接再厉！祝贺他本次取得好成绩！"<<endl;
             }
