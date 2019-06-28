@@ -20,31 +20,41 @@ bool cmp(const student &s1,const student &s2){
 }
 using namespace std;
 void print(){
-    int i;
-    for(i=0;i<46;i++){
+    int begin;
+    for(begin=0;begin<46;begin++){
         cout<<"*";
     }
 }
 void print1(){
     int i;
-    for(i=0;i<40;i++){
-        cout<<"*"<<endl;
+   for(i=0;i<46;i++){
+       cout<<"*";
     }
+    cout<<endl;
+    for(i=0;i<46;i++)
+        cout<<"*";
 }
 int main()
 {
-    int number;
+    int number; int begin;
     ifstream folder1("/Users/s20181102929/Desktop/比赛打分表/参赛人数.txt");
     folder1>>number;
     print();
     cout<<endl;
-    cout<<"本次参赛的选手共有 "<<number<<"名"<<"!"<<endl<<endl;
+    cout<<"本次参赛的选手共有 "<<number<<"名"<<"!"<<endl;
+    for(begin=0;begin<46;begin++){
+        cout<<"*";
+    }
+    cout<<endl;
     cout<<"他们的详细比赛成绩我已经放到了本地比赛打分文件夹下！"<<endl<<endl;
     cout<<"如果您想浏览比赛结果，请到本地文件夹下查看"<<endl<<endl;
-    cout<<"下面将为你呈现本次比赛中的一些基本信息："<<endl<<endl;
+    cout<<"下面将为你呈现本次比赛中的一些基本信息："<<endl;
+    for(begin=0;begin<46;begin++){
+        cout<<"*";
+    }
+    cout<<endl<<endl;
     student players[number];
     ifstream folder2("/Users/s20181102929/Desktop/比赛打分表/学生的基本信息.txt");
-    int begin;
     for(begin=0;begin<number;begin++){
         folder2>>players[begin].num>>players[begin].academy>>players[begin].name;
     }
