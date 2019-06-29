@@ -177,13 +177,17 @@ int main()
     
     ofstream folder3("/Users/s20181102929/Desktop/比赛打分表/比赛信息.txt");
     if(folder3.is_open()){
-        for(int start=0;start<50;start++){
+        for(int start=0;start<56;start++){
             folder3<<"*";
         }
         folder3<<endl;
         folder3<<"在经过精彩而又激烈的竞争后，本次比赛也拉下帷幕"<<endl<<endl<<"各位选手也在本次比赛中取得了优异的成绩！！！！"<<endl<<endl<<endl;
         folder3<<"本次的比赛结果如下："<<endl<<endl;
-        folder3<<"下面由我来给大家揭晓："<<endl<<endl<<endl<<endl;
+        folder3<<"下面由我来给大家揭晓："<<endl<<endl;
+        for(begin=0;begin<56;begin++){
+            folder3<<"*";
+        }
+        folder3<<endl<<endl;
         for(begin=0;begin<number;begin++){
             folder3<<"获得本次比赛第"<<begin+1<<"名的是："<<endl;
             folder3<<"他是来自:"<<"     "<<players[begin].academy<<"       "<<"学号为："<<"  "<<players[begin].num<<"     "<<" 的"<<players[begin].name<<"同学"<<endl;
@@ -195,9 +199,12 @@ int main()
                 folder3<<"希望他能在下次的比赛中取得更加优异的成绩！"<<endl;
             }
             folder3<<"感谢他的参与！"<<endl<<endl<<endl;
+            for(int start=0;start<56;start++){
+                folder3<<"*";
+            }
             folder3<<endl;
         }
-        for(int start=0;start<50;start++){
+        for(int start=0;start<56;start++){
             folder3<<"*";
         }
         folder3.close();
