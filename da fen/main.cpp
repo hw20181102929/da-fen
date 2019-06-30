@@ -168,10 +168,10 @@ int main()
         }
     }
     for(begin=0;begin<number;begin++){
-        double h=0;
-        h=players[begin].score1+players[begin].score2+players[begin].score3+players[begin].score4+players[begin].score5+players[begin].score6+players[begin].score7;
-        h=1.0*h/5;
-        players[begin].avg=h;
+        double sumscore=0;
+        sumscore=players[begin].score1+players[begin].score2+players[begin].score3+players[begin].score4+players[begin].score5+players[begin].score6+players[begin].score7;
+        sumscore=1.0*sumscore/5;
+        players[begin].avg=sumscore;
     }
     sort(players,players+number,cmp);
     
@@ -204,10 +204,7 @@ int main()
             }
             folder3<<endl;
         }
-        for(int start=0;start<56;start++){
-            folder3<<"*";
-        }
-        folder3.close();
+            folder3.close();
     }
     return 0;
 }
