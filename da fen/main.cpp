@@ -6,6 +6,7 @@ struct student{
     char num[10];
     char academy[100];
     char name[30];
+    char sex[20];
     int score1;
     int score2;
     int score3;
@@ -14,6 +15,14 @@ struct student{
     int score6;
     int score7;
     double average;
+};
+struct teacher{
+    char name[20];
+    char name1[20];
+    char phone[20];
+    char area[20];
+    char sex[20];
+    
 };
 bool cmp(const student &stu1,const student &stu2){
     return stu1.average>stu2.average;
@@ -50,19 +59,38 @@ int main()
         cout<<"*";
     }
     cout<<endl<<endl;
-    student players[NUMBER];
+    student players[NUMBER];teacher Teacher[7];
     ifstream folder2("/Users/s20181102929/Desktop/比赛打分表/学生的基本信息.txt");
     for(i=0;i<NUMBER;i++){
-        folder2>>players[i].num>>players[i].academy>>players[i].name;
+        folder2>>players[i].num>>players[i].academy>>players[i].name>>players[i].sex;
     }
     ifstream folder4("/Users/s20181102929/Desktop/比赛打分表/裁判打分.txt");
+    for(i=0;i<7;i++){
+        folder4>>Teacher[i].name;
+    }
+    ifstream folder5("/Users/s20181102929/Desktop/比赛打分表/裁判基本信息表.txt");
+    for(i=0;i<7;i++){
+        folder5>>Teacher[i].name1>>Teacher[i].phone>>Teacher[i].area>>Teacher[i].sex;
+    }
     for(i=0;i<NUMBER;i++){
- folder4>>players[i].score1>>players[i].score2>>players[i].score3>>players[i].score4>>players[i].score5>>players[i].score6>>players[i].score7;
+    folder4>>players[i].score1>>players[i].score2>>players[i].score3>>players[i].score4>>players[i].score5>>players[i].score6>>players[i].score7;
     }
     cout<<"各位裁判的对选手的打分如下： "<<endl;
+    cout<<"             ";
+    for(i=0;i<7;i++){
+        cout<<Teacher[i].name<<" ";
+    }
+    cout<<endl;
     for(i=0;i<NUMBER;i++){
         cout<<i+1<<"号选手的得分为：";
-        cout<<players[i].score1<<" " <<players[i].score2<<" "<<players[i].score3<<" "<<players[i].score4<<" "<<players[i].score5<<" "<<players[i].score6<<" "<<players[i].score7<<endl<<endl;
+        cout<<players[i].score1<<"    ";
+        cout<<players[i].score2<<"   ";
+        cout<<players[i].score3<<"   ";
+        cout<<players[i].score4<<"    ";
+        cout<<players[i].score5<<"   ";
+        cout<<players[i].score6<<"    ";
+        cout<<players[i].score7<<"      ";
+        cout<<endl;
     }
     print();
     cout<<endl;
@@ -166,7 +194,7 @@ int main()
     }
     for(i=0;i<NUMBER;i++){
         double sumscore=0;
-        sumscore=players[i].score1+players[i].score2+players[i].score3+players[i].score4+players[i].score5+players[i].score6+players[i].score7;
+ sumscore=players[i].score1+players[i].score2+players[i].score3+players[i].score4+players[i].score5+players[i].score6+players[i].score7;
         sumscore=1.0*sumscore/5;
         players[i].average=sumscore;
     }
