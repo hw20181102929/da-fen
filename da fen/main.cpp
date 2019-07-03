@@ -13,10 +13,10 @@ struct student{
     int score5;
     int score6;
     int score7;
-    double avg;
+    double average;
 };
-bool cmp(const student &s1,const student &s2){
-    return s1.avg>s2.avg;
+bool cmp(const student &stu1,const student &stu2){
+    return stu1.average>stu2.average;
 }
 using namespace std;
 void print(){
@@ -26,12 +26,12 @@ void print(){
     }
 }
 void print1(){
-    int i;
-   for(i=0;i<46;i++){
+    int start;
+   for(start=0;start<46;start++){
        cout<<"*";
     }
     cout<<endl;
-    for(i=0;i<46;i++)
+    for(start=0;start<46;start++)
         cout<<"*";
 }
 int main()
@@ -171,7 +171,7 @@ int main()
         double sumscore=0;
         sumscore=players[begin].score1+players[begin].score2+players[begin].score3+players[begin].score4+players[begin].score5+players[begin].score6+players[begin].score7;
         sumscore=1.0*sumscore/5;
-        players[begin].avg=sumscore;
+        players[begin].average=sumscore;
     }
     sort(players,players+number,cmp);
     
@@ -191,7 +191,7 @@ int main()
         for(begin=0;begin<number;begin++){
             folder3<<"获得本次比赛第"<<begin+1<<"名的是："<<endl;
             folder3<<"他是来自:"<<"     "<<players[begin].academy<<"       "<<"学号为："<<"  "<<players[begin].num<<"     "<<" 的"<<players[begin].name<<"同学"<<endl;
-            folder3<<"去掉一个最高分去掉一个最低分他的最后得分为："<<endl<<endl<<players[begin].avg<<endl<<endl;
+            folder3<<"去掉一个最高分去掉一个最低分他的最后得分为："<<endl<<endl<<players[begin].average<<endl<<endl;
             if(begin==0){
                 folder3<<"希望他能再接再厉！祝贺他本次取得好成绩！"<<endl;
             }
