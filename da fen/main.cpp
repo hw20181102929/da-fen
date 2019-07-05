@@ -89,7 +89,7 @@ int main()
         cout<<players[i].score4<<"    ";
         cout<<players[i].score5<<"   ";
         cout<<players[i].score6<<"    ";
-        cout<<players[i].score7<<"      ";
+        cout<<players[i].score7<<"       ";
         cout<<endl;
     }
     print();
